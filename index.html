@@ -4,13 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ai V8 เครื่องมืออัจฉริยะ</title>
-      <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+    <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
     
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;700&display=swap');
 
         :root {
-        
             --primary-color: #00c8ff;
             --secondary-color: #0080ff;
             --bg-color: #FFFFFF;
@@ -135,7 +134,7 @@
             background-color: var(--secondary-color);
         }
         
-                .user-info {
+        .user-info {
             text-align: center;
             margin-top: 0.5rem;
         }
@@ -150,6 +149,28 @@
             margin-top: 0.5rem;
             font-weight: 500;
         }
+        
+        #homeBtn {
+            position: fixed;
+            bottom: 40px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #333;
+            color: white;
+            border: none;
+            font-size: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #homeBtn:hover {
+            background-color: #555;
+        }
     </style>
 </head>
 <body>
@@ -161,33 +182,29 @@
         </div>
         <h1>Ai V8<br>เครื่องมืออัจฉริยะ</h1>
         
-    
-    
-              <div class="full-divider"></div>
+        <div class="full-divider"></div>
       
         <div class="image-container">
             <div class="image-box">
-                <a href="https://infinityrichglobal.github.io/Card/" class="image-link" target="_blank">
-                    <img src="https://cdn-icons-png.flaticon.com/128/10306/10306162.png" alt="Clickable Image">
-                </a>
+                <!-- ลบ <a> ที่ห่อหุ้มภาพออก -->
+                <img src="https://cdn-icons-png.flaticon.com/128/10306/10306162.png" alt="Clickable Image" class="image-link">
                 <div class="button-container">
-                    <button>Auto Script</button>
+                    <button onclick="window.location.href='https://infinityrichglobal.github.io/AiV8/'">Auto Script</button>
                 </div>
             </div>
             <div class="full-divider"></div>
+
             <div class="image-box">
-                <a href="https://infinityrichglobal.github.io/Card/" class="image-link" target="_blank">
-                    <img src="https://cdn-icons-png.flaticon.com/128/8061/8061970.png" alt="Clickable Image">
-                </a>
+                <!-- ลบ <a> ที่ห่อหุ้มภาพออก -->
+                <img src="https://cdn-icons-png.flaticon.com/128/8061/8061970.png" alt="Clickable Image" class="image-link">
                 <div class="button-container">
-                    <button>ส่งการ์ดสถานะนักเรียน</button>
+                    <button onclick="window.location.href='https://infinityrichglobal.github.io/Card/'">ส่งการ์ดสถานะนักเรียน</button>
                 </div>
             </div>
         </div>
+        <button id="homeBtn">🏠</button>
     </div>
     
-    
-
     <script>
     const LIFF_ID = "2006070736-MX8WE12P"; // แทนที่ด้วย LIFF ID ของคุณ
     const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwmCAAs6KXOYye3qexpgobroYdgpdhBbypWHkCwlGnlx8auzQAmhATZEXQ5ABQyn5M/exec"; // แทนที่ด้วย URL ของ Apps Script ที่เผยแพร่
@@ -216,10 +233,12 @@
 
         fetchFlexMessages(); // Load Flex Messages after LIFF is initialized
     }
-</script>
-
     
+// Add event listener to home button to navigate to the specified URL
+document.getElementById('homeBtn').addEventListener('click', function() {
+    window.location.href = 'https://infinityrichglobal.github.io/AiV8SITE/';
+});
+
+    </script>
 </body>
-
-
 </html>
