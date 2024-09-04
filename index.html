@@ -181,15 +181,17 @@
     </div>
     
     
-<script>
-    const LIFF_ID = "2006070736-MX8WE12P"; // แทนที่ด้วย LIFF ID ของคุณ
+
+    <script>
+    const LIFF_ID = "2006070736-AN1rzPyB"; // แทนที่ด้วย LIFF ID ของคุณ
+    const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwmCAAs6KXOYye3qexpgobroYdgpdhBbypWHkCwlGnlx8auzQAmhATZEXQ5ABQyn5M/exec"; // แทนที่ด้วย URL ของ Apps Script ที่เผยแพร่
+    
+    let flexMessages = {};
 
     // Initialize LIFF
     liff.init({ liffId: LIFF_ID })
         .then(() => {
             console.log("LIFF Initialized");
-
-            // Check if the user is logged in
             if (liff.isLoggedIn()) {
                 runApp();
             } else {
@@ -197,26 +199,18 @@
             }
         })
         .catch((err) => {
-            console.error("LIFF Initialization failed:", err);
+            console.log("LIFF Initialization failed:", err);
         });
 
     function runApp() {
-        // Get profile information
-        liff.getProfile()
-            .then(profile => {
-                console.log("Profile data:", profile); // ตรวจสอบข้อมูลโปรไฟล์
+        liff.getProfile().then(profile => {
+            document.getElementById("pictureUrl").src = profile.pictureUrl;
+            document.getElementById("displayName").innerHTML = '<b>ยินดีต้อนรับคุณ:</b> ' + profile.displayName;
+        }).catch(err => console.error(err));
 
-                // Set profile picture and display name
-                document.getElementById("pictureUrl").src = profile.pictureUrl;
-                document.getElementById("displayName").innerHTML = '<b>ยินดีต้อนรับคุณ:</b> ' + profile.displayName;
-            })
-            .catch(err => {
-                console.error("Error getting profile:", err);
-            });
-
-        // Additional code to fetch Flex messages (if applicable)
-        // fetchFlexMessages(); // Uncomment if you have a function to fetch Flex messages
+        fetchFlexMessages(); // Load Flex Messages after LIFF is initialized
     }
+    });
 </script>
 
     
