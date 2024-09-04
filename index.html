@@ -3,11 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image Links with Buttons and Divider</title>
+    <title>Ai V8 เครื่องมืออัจฉริยะ</title>
+      <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+    
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;700&display=swap');
 
         :root {
+        
             --primary-color: #00c8ff;
             --secondary-color: #0080ff;
             --bg-color: #FFFFFF;
@@ -134,7 +137,7 @@
         
                 .user-info {
             text-align: center;
-            margin-bottom: 2rem;
+            margin-top: 0.5rem;
         }
 
         .user-info img {
@@ -151,30 +154,33 @@
 </head>
 <body>
     <div class="container">
-        <h1>Ai V8 <br>เครื่องมืออัจฉริยะ</h1>
-        
     
         <div class="user-info">
             <img id="pictureUrl" alt="User Profile" width="80" height="80"> 
             <p id="displayName"></p>
         </div>
+        <h1>Ai V8<br>เครื่องมืออัจฉริยะ</h1>
+        
+    
+    
+              <div class="full-divider"></div>
       
         <div class="image-container">
             <div class="image-box">
                 <a href="https://infinityrichglobal.github.io/Card/" class="image-link" target="_blank">
-                    <img src="https://cdn-icons-png.flaticon.com/128/11103/11103359.png" alt="Clickable Image">
+                    <img src="https://cdn-icons-png.flaticon.com/128/10306/10306162.png" alt="Clickable Image">
                 </a>
                 <div class="button-container">
-                    <button>Ai V8</button>
+                    <button>Auto Script</button>
                 </div>
             </div>
             <div class="full-divider"></div>
             <div class="image-box">
                 <a href="https://infinityrichglobal.github.io/Card/" class="image-link" target="_blank">
-                    <img src="https://cdn-icons-png.flaticon.com/128/6518/6518509.png" alt="Clickable Image">
+                    <img src="https://cdn-icons-png.flaticon.com/128/8061/8061970.png" alt="Clickable Image">
                 </a>
                 <div class="button-container">
-                    <button>Ai V8<br>เครื่องมืออัจฉริยะ</button>
+                    <button>ส่งการ์ดสถานะนักเรียน</button>
                 </div>
             </div>
         </div>
@@ -183,7 +189,7 @@
     
 
     <script>
-    const LIFF_ID = "2006070736-AN1rzPyB"; // แทนที่ด้วย LIFF ID ของคุณ
+    const LIFF_ID = "2006070736-MX8WE12P"; // แทนที่ด้วย LIFF ID ของคุณ
     const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwmCAAs6KXOYye3qexpgobroYdgpdhBbypWHkCwlGnlx8auzQAmhATZEXQ5ABQyn5M/exec"; // แทนที่ด้วย URL ของ Apps Script ที่เผยแพร่
     
     let flexMessages = {};
@@ -210,7 +216,6 @@
 
         fetchFlexMessages(); // Load Flex Messages after LIFF is initialized
     }
-    });
 </script>
 
     
