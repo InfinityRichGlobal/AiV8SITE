@@ -181,15 +181,15 @@
     </div>
     
     
-        <script>
+<script>
     const LIFF_ID = "2006070736-MX8WE12P"; // แทนที่ด้วย LIFF ID ของคุณ
-    
-    let flexMessages = {};
 
     // Initialize LIFF
     liff.init({ liffId: LIFF_ID })
         .then(() => {
             console.log("LIFF Initialized");
+
+            // Check if the user is logged in
             if (liff.isLoggedIn()) {
                 runApp();
             } else {
@@ -197,18 +197,28 @@
             }
         })
         .catch((err) => {
-            console.log("LIFF Initialization failed:", err);
+            console.error("LIFF Initialization failed:", err);
         });
 
     function runApp() {
-        liff.getProfile().then(profile => {
-            document.getElementById("pictureUrl").src = profile.pictureUrl;
-            document.getElementById("displayName").innerHTML = '<b>ยินดีต้อนรับคุณ:</b> ' + profile.displayName;
-        }).catch(err => console.error(err));
+        // Get profile information
+        liff.getProfile()
+            .then(profile => {
+                console.log("Profile data:", profile); // ตรวจสอบข้อมูลโปรไฟล์
 
-        fetchFlexMessages(); // Load Flex Messages after LIFF is initialized
+                // Set profile picture and display name
+                document.getElementById("pictureUrl").src = profile.pictureUrl;
+                document.getElementById("displayName").innerHTML = '<b>ยินดีต้อนรับคุณ:</b> ' + profile.displayName;
+            })
+            .catch(err => {
+                console.error("Error getting profile:", err);
+            });
+
+        // Additional code to fetch Flex messages (if applicable)
+        // fetchFlexMessages(); // Uncomment if you have a function to fetch Flex messages
     }
-          </script>
+</script>
+
     
 </body>
 
