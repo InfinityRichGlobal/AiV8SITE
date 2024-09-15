@@ -4,13 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ai V8 เครื่องมืออัจฉริยะ</title>
-      <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+    <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
     
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;700&display=swap');
 
         :root {
-        
             --primary-color: #00c8ff;
             --secondary-color: #0080ff;
             --bg-color: #FFFFFF;
@@ -31,32 +30,24 @@
             font-family: 'Prompt', sans-serif;
             color: var(--text-color);
             line-height: 1.6;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             min-height: 100vh;
             background-image: 
                 radial-gradient(circle at 10% 20%, rgba(0, 200, 255, 0.1) 0%, transparent 20%),
                 radial-gradient(circle at 90% 80%, rgba(0, 128, 255, 0.1) 0%, transparent 20%);
             background-attachment: fixed;
+            padding: 20px;
         }
 
         .container {
-            width: 90%;
+            width: 100%;
             max-width: 600px;
-            padding: 2.5rem;
+            margin: 0 auto;
+            padding: 2rem;
             background-color: var(--container-bg);
             border-radius: 20px;
             box-shadow: 0 0px 10px rgba(0, 0, 0, 0.2);
             transition: all 0.3s ease;
             border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                width: 95%;
-                padding: 1.5rem;
-            }
         }
 
         h1 {
@@ -67,76 +58,7 @@
             margin-bottom: 1.5rem;
         }
 
-        h2 {
-            text-align: center;
-            color: var(--primary-color);
-            text-shadow: 0 0 2px rgba(0, 200, 255, 0.5);
-            font-size: 1rem;
-            margin-bottom: 1rem;
-        }
-
-        .image-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1rem;
-        }
-
-        .image-box {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-
-        .image-link {
-            display: inline-block;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .image-link img {
-            display: block;
-            width: 128px;
-            height: 128px;
-        }
-
-        .image-link:hover {
-            transform: scale(1.1);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        }
-
-        .full-divider {
-            width: 100%;
-            height: 1px;
-            background-color: #d3d3d3;
-            margin: 1rem 0;
-        }
-
-        .button-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 1rem;
-        }
-
-        .button-container button {
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            font-size: 18px; /* เพิ่มบรรทัดนี้เพื่อกำหนดขนาดตัวอักษร */
-        }
-
-        .button-container button:hover {
-         transform: scale(1.1);
-          background-color: red;
-        }
-        
-                .user-info {
+        .user-info {
             text-align: center;
             margin-bottom: 1rem;
         }
@@ -146,6 +68,8 @@
             border: 2px solid var(--primary-color);
             box-shadow: 0 0 10px rgba(0, 200, 255, 0.5);
             margin-top: 1rem;
+            max-width: 120px;
+            height: auto;
         }
 
         .user-info p {
@@ -153,49 +77,146 @@
             font-weight: 500;
         }
 
-                .user-info img:hover {
-            transform: scale(1.1);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.5rem;
+            width: 100%;
         }
 
+        .grid-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+
+            transition: all 0.3s ease;
+        }
+
+        .grid-item:hover {
+            transform: scale(1.1);
+
+        }
+
+.image-link {
+    width: 120px;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+}
+
+.image-link img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+        .button-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-top: 0.5rem;
+        }
+
+        .button-container button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.5rem  0.5rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-size: 14px;
+            width: 100%;
+            max-width: 150px;
+        }
+
+        .button-container button:hover {
+            transform: scale(1.1);
+            background-color: red;
+        }
+
+        .divider {
+            grid-column: 1 / -1;
+            height: 1px;
+            background-color: var(--border-color);
+            margin: 1rem 0;
+        }
+
+
+
+
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .image-link img {
+                width: 120px;
+                height: 120px;
+            }
+
+            .button-container button {
+                font-size: 12px;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
-  
-  
-          <div class="user-info">
+        <div class="user-info">
             <img id="pictureUrl" alt="User Profile" width="120" height="120"> 
             <p id="displayName"></p>
         </div>
         
-        
         <h1>Ai+ V8<br>เครื่องมืออัจฉริยะ</h1>
         
+        <div class="grid-container">
+            <div class="grid-item">
+                <img src="https://cdn-icons-gif.flaticon.com/17576/17576923.gif" alt="Clickable Image" class="image-link">
+                <div class="button-container">
+                    <button onclick="window.location.href='https://liff.line.me/2006070736-MX8WE12P'">Auto Script</button>
+                </div>
+            </div>
+            
+                        <div class="grid-item">
+                <img src="https://cdn-icons-gif.flaticon.com/14447/14447697.gif" alt="Clickable Image" class="image-link">
+                <div class="button-container">
+                    <button onclick="window.location.href='https://infinityrichglobal.github.io/Card/'">ส่งการ์ดสถานะนักเรียน</button>
+                </div>
+            </div>
+            
+                        <div class="grid-item">
+                <img src="https://cdn-icons-gif.flaticon.com/16104/16104537.gif" alt="Clickable Image" class="image-link">
+                <div class="button-container">
+                    <button onclick="window.location.href='https://infinityrichglobal.github.io/Card/Bank.html'">ส่งการ์ดบัญชีรับเงิน</button>
+                </div>
+            </div>
 
-      
-<div class="image-container">
-    <div class="image-box">
-        <!-- ลบ <a> ที่ห่อหุ้มภาพออก -->
-        <img src="https://cdn-icons-png.flaticon.com/128/10306/10306162.png" alt="Clickable Image" class="image-link">
-        <div class="button-container">
-            <button onclick="window.location.href='https://liff.line.me/2006070736-MX8WE12P'">Auto Script</button>
+     
+
+
+            <div class="grid-item">
+                <img src="https://cdn-icons-gif.flaticon.com/14984/14984806.gif" alt="Clickable Image" class="image-link">
+                <div class="button-container">
+                    <button>ส่งการ์ดแนะนำตัว</button>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="full-divider"></div>
 
-    <div class="image-box">
-        <!-- ลบ <a> ที่ห่อหุ้มภาพออก -->
-        <img src="https://cdn-icons-png.flaticon.com/128/8061/8061970.png" alt="Clickable Image" class="image-link">
-        <div class="button-container">
-            <button onclick="window.location.href='https://infinityrichglobal.github.io/Card/'">ส่งการ์ดสถานะนักเรียน</button>
-        </div>
-    </div>
-</div>
-
-        
-    </div>
-    
     <script>
     const LIFF_ID = "2006070736-AN1rzPyB"; // แทนที่ด้วย LIFF ID ของคุณ
     const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwmCAAs6KXOYye3qexpgobroYdgpdhBbypWHkCwlGnlx8auzQAmhATZEXQ5ABQyn5M/exec"; // แทนที่ด้วย URL ของ Apps Script ที่เผยแพร่
@@ -346,11 +367,8 @@
             }
         }
     });
-    </script>
-    
+   </script>
 
-
-    
 </body>
 
 
